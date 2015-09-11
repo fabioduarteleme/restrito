@@ -15,7 +15,15 @@ $sql = "SELECT * FROM $tabelabd WHERE idusuario='".$_GET["user"]."' AND ativo='"
 $result = mysqli_query($con, $sql);
 
 while($obj = mysqli_fetch_object($result)) {
+	
+	$sql_galeria = "SELECT * FROM fotos WHERE idrelacionamento='320'";
+    $result_galeria = mysqli_query($con, $sql_galeria);
+    
+    while ($galeria = mysqli_fetch_object($result_galeria)) {
+        $obj->galeria[] = $galeria;
+    };
+
 $var[] = $obj;
 }
-echo '{"'.$tabelabd.'":'.json_encode($var).'}';
+echo json_encode($var);
 ?>

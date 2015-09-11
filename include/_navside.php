@@ -37,20 +37,20 @@
                         <li data-step="4" data-intro="Clicando neles é possível alterar as informações de seu site" data-position='right'>
                             <a <?php if ($currentpage == "empresa.php") { ?> class="active" <?php }  ?> href="empresa.php"><i class="fa fa-building fa-fw fa-3x"></i> Empresa</a>
                         </li>
-                        <!--
+                        
                         <li>
                             <a <?php if ($currentpage == "galerias.php") { ?> class="active" <?php }  ?> href="galerias.php"><i class="fa fa-camera fa-fw fa-3x"></i> Galerias</a>
                         </li>
                         <li>
                             <a <?php if ($currentpage == "paginas.php") { ?> class="active" <?php }  ?> href="paginas.php"><i class="fa fa-file-text fa-fw fa-3x"></i> Páginas</a>
-                        </li>-->
+                        </li>
                         <li>
                             <a <?php if ($currentpage == "banner.php") { ?> class="active" <?php }  ?> href="banner.php"><i class="fa fa-photo fa-fw fa-3x"></i> Banners</a>
                         </li>
                         <li>
                             <a <?php if ($currentpage == "imoveis.php") { ?> class="active" <?php }  ?> href="imoveis.php"><i class="fa fa-home fa-fw fa-3x"></i> Imóveis</a>
                         </li>
-                        <!--
+                        
                         <li>
                             <a <?php if ($currentpage == "carros.php") { ?> class="active" <?php }  ?> href="carros.php"><i class="fa fa-car fa-fw fa-3x"></i> Automóveis</a>
                         </li>
@@ -59,7 +59,7 @@
                         </li>
                         <li>
                             <a <?php if ($currentpage == "carroModelos.php") { ?> class="active" <?php }  ?> href="carroModelos.php"><i class="fa fa-car fa-fw fa-3x"></i> Modelos</a>
-                        </li>-->
+                        </li>
                         <li>
                             <a <?php if ($currentpage == "setup.php") { ?> class="active" <?php }  ?> href="setup.php"><i class="fa fa-sitemap fa-fw fa-3x"></i> Configurações do Site</a>
                         </li>
