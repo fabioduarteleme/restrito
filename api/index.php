@@ -16,7 +16,7 @@ $result = mysqli_query($con, $sql);
 
 while($obj = mysqli_fetch_object($result)) {
 	
-	$sql_galeria = "SELECT * FROM fotos WHERE idrelacionamento='320'";
+	$sql_galeria = "SELECT id, idrelacionamento, destaque, titulo FROM fotos WHERE idrelacionamento='". $obj->idgaleria."'";
     $result_galeria = mysqli_query($con, $sql_galeria);
     
     while ($galeria = mysqli_fetch_object($result_galeria)) {
