@@ -7,9 +7,10 @@ $tabelabd = "paginas";
 
 //INSERT DATA
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "addForm")) {
-$insertSQL = sprintf("INSERT INTO $tabelabd (data_cadastro, idusuario, ativo, titulo, texto01, texto02, texto03, texto04, idgaleria) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+$insertSQL = sprintf("INSERT INTO $tabelabd (data_cadastro, idusuario, tipo, ativo, titulo, texto01, texto02, texto03, texto04, idgaleria) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
 GetSQLValueString($_POST['data_cadastro'], "date"),
 GetSQLValueString($_POST['idusuario'], "text"),
+GetSQLValueString($_POST['tipo'], "text"),
 GetSQLValueString($_POST['ativo'], "text"),
 GetSQLValueString($_POST['titulo'], "text"),
 GetSQLValueString($_POST['texto01'], "text"),
@@ -24,8 +25,9 @@ header('location:'.$pagereturn.'?s=1&idpost='.mysql_insert_id());}
 
 //UPDATE DATA
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "editForm")) {
-$updateSQL = sprintf("UPDATE $tabelabd SET data_cadastro=%s, ativo=%s, titulo=%s, texto01=%s, texto02=%s, texto03=%s, texto04=%s, idgaleria=%s WHERE id=%s",
+$updateSQL = sprintf("UPDATE $tabelabd SET data_cadastro=%s, tipo=%s, ativo=%s, titulo=%s, texto01=%s, texto02=%s, texto03=%s, texto04=%s, idgaleria=%s WHERE id=%s",
 GetSQLValueString($_POST['data_cadastro'], "date"),
+GetSQLValueString($_POST['tipo'], "text"),
 GetSQLValueString($_POST['ativo'], "text"),
 GetSQLValueString($_POST['titulo'], "text"),
 GetSQLValueString($_POST['texto01'], "text"),

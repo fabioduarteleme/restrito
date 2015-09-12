@@ -107,11 +107,21 @@ $totalRows_up = mysql_num_rows($up);
                                         <hr>
 
                                         <div class="form-group">
-                                            <div class="coluna">
+                                            <div class="coluna col-md-6">
                                             <label><i class="fa fa-tag"></i> Quer esta galeria aparecendo no site?</label>
                                             <select class="form-control" name="ativo">
                                                 <option value="S" <?php if (!(strcmp("S", htmlentities($row_up['ativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Sim</option>
                                                 <option value="N" <?php if (!(strcmp("N", htmlentities($row_up['ativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Não</option>
+                                            </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <div class="coluna">
+                                            <label><i class="fa fa-tag"></i> Selecione o tipo de conteúdo</label>
+                                            <select class="form-control" name="tipo">
+                                                <option value="pagina" <?php if (!(strcmp("pagina", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Página</option>
+                                                <option value="noticia" <?php if (!(strcmp("noticia", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Notícia</option>
                                             </select>
                                             </div>
                                         </div>
@@ -144,10 +154,10 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <div class="coluna">
                                                 <label><i class="fa fa-paperclip"></i> Galeria de Fotos</label>
-                                                <select class="form-control" name="idgaleria" required>
-                                                    <option value="<?php echo $row_up['idgaleria']; ?>" selected><?php echo $row_up['idgaleria']; ?></option>
+                                                <select class="form-control" name="idgaleria">
+                                                    <option value="">Sem Nenhuma</option>
                                                     <?php do { ?>
-                                                    <option value="<?php echo $row_galeria['id']; ?>"><?php echo $row_galeria['titulo']; ?></option>
+                                                    <option value="<?php echo $row_galeria['id']; ?>" <?php if (!(strcmp($row_galeria['id'], htmlentities($row_up['idgaleria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>><?php echo $row_galeria['titulo']; ?></option>
                                                     <?php } while ($row_galeria = mysql_fetch_assoc($galeria)); ?>
                                                 </select>
                                                 </div>
@@ -202,6 +212,16 @@ $totalRows_up = mysql_num_rows($up);
                                         
                                         <div class="row">
                                             <div class="form-group col-md-12">
+                                                <select class="form-control col-md-12" name="tipo" require>
+                                                    <option value="" selected> Selecione uma Categoria</option>
+                                                    <option value="pagina"> Página</option>
+                                                    <option value="noticia">Notícia</option>
+                                                </select>
+                                             </div>   
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
                                             <input placeholder="Titulo" name="titulo" type="text" class="form-control" value="" required/>
                                             </div>
                                         </div>
@@ -229,14 +249,16 @@ $totalRows_up = mysql_num_rows($up);
                                         </div>
 
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <div class="coluna">
-                                            <label><i class="fa fa-home"></i> Galeria de Imagem</label>
-                                            <select class="form-control" name="idgaleria" required>
-                                                <option value="" selected>Selecione alguma se quiser</option>
-                                                <?php do { ?>
-                                                <option value="<?php echo $row_galeria['id']; ?>"><?php echo $row_galeria['titulo']; ?></option>
-                                                <?php } while ($row_galeria = mysql_fetch_assoc($galeria)); ?>
-                                            </select>
+                                            <div class="row">    
+                                                <div class="coluna">
+                                                <label><i class="fa fa-home"></i> Galeria de Imagem</label>
+                                                <select class="form-control" name="idgaleria">
+                                                    <option value="" selected>Selecione alguma galeria se desejar</option>
+                                                    <?php do { ?>
+                                                    <option value="<?php echo $row_galeria['id']; ?>"><?php echo $row_galeria['titulo']; ?></option>
+                                                    <?php } while ($row_galeria = mysql_fetch_assoc($galeria)); ?>
+                                                </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -272,6 +294,7 @@ $totalRows_up = mysql_num_rows($up);
                                             <tr>
                                                 <th class="tab-id text-center">ID</th>
                                                 <th class="tab-status text-center">ATIVO</th>
+                                                <th class="tab-nome">TIPO</th>
                                                 <th class="tab-nome">NOME</th>
                                                 <th class="tab-acoes text-center">AÇÕES</th>
                                             </tr>
@@ -286,6 +309,7 @@ $totalRows_up = mysql_num_rows($up);
                                                     <input type="checkbox" <?php if($row_r['ativo']=="S") { echo "checked"; } ?> id="<?php echo $row_r['id']; ?>" /><label for="<?php echo $row_r['id']; ?>"><span class="ui"></span></label>
                                                   </div>
                                                 </td>
+                                                <td class="text-tab" style="text-transform:capitalize;"><b><?php echo limitar($row_r['tipo'],50); ?></b></td>
                                                 <td class="text-tab"><?php echo limitar($row_r['titulo'],50); ?></td>
                                                 <td>
                                                     <div class="dropdown">

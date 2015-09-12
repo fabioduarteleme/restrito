@@ -114,7 +114,7 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i> Categoria</label>
                                             <select class="form-control" name="categoria">
-                                                <option value="bannerinferior" <?php if (!(strcmp("bannerinferior", htmlentities($row_up['categoria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Banner Inferior</option>
+                                                <option value="paginaprincipal" <?php if (!(strcmp("paginaprincipal", htmlentities($row_up['categoria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Página principal</option>
                                             </select>
                                             </div>
                                         </div>

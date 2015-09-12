@@ -218,6 +218,7 @@ $totalRows_up = mysql_num_rows($up);
                                                         <span class="caret"></span>
                                                       </button>
                                                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                        <li><a href="?upload=<?php echo base64_encode($row_r['id']); ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><i class="fa fa-eye"></i> Visualizar</a></li>
                                                         <li><a href="?upload=<?php echo base64_encode($row_r['id']); ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><i class="fa fa-picture-o"></i> Enviar Foto</a></li>
                                                         <li><a href="?edit=<?php echo base64_encode($row_r['id']); ?>"><i class="fa fa-edit"></i> Editar</a></li>
                                                         <li><a onClick="return confirm('Deseja realmente excluir?')" href="<?php echo $controller; ?>?del=<?php echo base64_encode($row_r['id']); ?>"><i class="fa fa-trash-o"></i> Deletar</a></li>
