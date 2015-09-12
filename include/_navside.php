@@ -52,6 +52,7 @@
                             <a <?php if ($currentpage == "eleicao.php") { ?> class="active" <?php }  ?> href="eleicao.php"><i class="fa fa-users fa-fw fa-3x"></i> Garota Country</a>
                         </li>
 
+                        <!--
                         <li>
                             <a <?php if ($currentpage == "imoveis.php") { ?> class="active" <?php }  ?> href="imoveis.php"><i class="fa fa-home fa-fw fa-3x"></i> Imóveis</a>
                         </li>
@@ -65,6 +66,8 @@
                         <li>
                             <a <?php if ($currentpage == "carroModelos.php") { ?> class="active" <?php }  ?> href="carroModelos.php"><i class="fa fa-car fa-fw fa-3x"></i> Modelos</a>
                         </li>
+                        -->
+                        
                         <li>
                             <a <?php if ($currentpage == "setup.php") { ?> class="active" <?php }  ?> href="setup.php"><i class="fa fa-sitemap fa-fw fa-3x"></i> Configurações do Site</a>
                         </li>

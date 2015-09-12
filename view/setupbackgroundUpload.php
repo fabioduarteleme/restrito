@@ -26,7 +26,7 @@
     if(empty($errors)==true){ 
         $ext = explode(".", $_FILES['Filedata']['name']);
         $targetFile =  rand().".".$file_ext;
-        $sql = mysql_query("UPDATE setup SET background = '$targetFile' WHERE id = '$idregistro' ");
+        $sql = mysql_query("UPDATE setup SET eleicaobackground = '$targetFile' WHERE id = '$idregistro' ");
         move_uploaded_file($file_tmp,"../img/setup/".$targetFile);
         Thumbnail( "../img/setup/".$targetFile, "../img/setup/".$targetFile , 1400, 1400);
         echo '{"status":"success"}';

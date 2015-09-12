@@ -133,29 +133,28 @@ $totalRows_up = mysql_num_rows($up);
 
 
                                             <div class="hr-special">
-                                            <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Princial</label></h3><hr>
-                                            <div class="form-group col-md-4 col-sm-4 col-xs-4">
-                                            <label>Titulo na Página Principal</label>
-                                            <input name="hometitulo" type="text" class="form-control" value="<?php echo htmlentities($row_up['hometitulo'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Garota Country</label></h3><hr>
+                                            
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>Votação</label>
+                                                <select class="form-control" name="eleicaovotacao">
+                                                    <option value="S" <?php if (!(strcmp("S", htmlentities($row_up['eleicaovotacao'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Liberada</option>
+                                                    <option value="N" <?php if (!(strcmp("N", htmlentities($row_up['eleicaovotacao'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Bloqueada</option>
+                                                </select>
                                             </div>
 
-                                            <div class="form-group col-md-4 col-sm-4 col-xs-4">
-                                            <label>Subtitulo na Página Principal</label>
-                                            <input name="homesubtitulo" type="text" class="form-control" value="<?php echo htmlentities($row_up['homesubtitulo'], ENT_COMPAT, 'utf-8'); ?>"/>
-                                            </div>
-
-                                            <div class="form-group col-md-4 col-sm-4 col-xs-4">
-                                            <label>Selecione uma cor para o site</label>
-                                                <select class="form-control" name="cor">
-                                                    <option value="amarelo" <?php if (!(strcmp("amarelo", htmlentities($row_up['cor'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Amarelo</option>
-                                                    <option value="turquesa" <?php if (!(strcmp("turquesa", htmlentities($row_up['cor'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Turquesa</option>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>Vencedor</label>
+                                                <select class="form-control" name="eleicaovencedor">
+                                                    <option value="N" <?php if (!(strcmp("N", htmlentities($row_up['eleicaovencedor'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Não mostrar</option>
+                                                    <option value="S" <?php if (!(strcmp("S", htmlentities($row_up['eleicaovencedor'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Mostrar</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                             <label>Imagem de Fundo</label><br>
-                                            <?php if (@$row_up['background'] != "") { ?>
-                                            <a href="../img/setup/<?php echo htmlentities($row_up['background'], ENT_COMPAT, 'utf-8'); ?>" class="fancybox"><img style="width: 50px; margin-left:0px; margin-right:20px;" src="../img/setup/<?php echo htmlentities($row_up['background'], ENT_COMPAT, 'utf-8'); ?>"></a>
+                                            <?php if (@$row_up['eleicaobackground'] != "") { ?>
+                                            <a href="../img/setup/<?php echo htmlentities($row_up['eleicaobackground'], ENT_COMPAT, 'utf-8'); ?>" class="fancybox"><img style="width: 50px; margin-left:0px; margin-right:20px;" src="../img/setup/<?php echo htmlentities($row_up['eleicaobackground'], ENT_COMPAT, 'utf-8'); ?>"></a>
                                             <a href="setup.php?edit=<?php echo $_GET['edit']; ?>&upload=S&tipo=background"><div class="btn btn-default"> <i class="fa fa-photo"></i> Alterar Imagem</div></a> 
                                             </div>
 
