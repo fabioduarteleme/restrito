@@ -47,6 +47,11 @@
                         <li>
                             <a <?php if ($currentpage == "banner.php") { ?> class="active" <?php }  ?> href="banner.php"><i class="fa fa-photo fa-fw fa-3x"></i> Banners</a>
                         </li>
+
+                        <li>
+                            <a <?php if ($currentpage == "eleicao.php") { ?> class="active" <?php }  ?> href="eleicao.php"><i class="fa fa-users fa-fw fa-3x"></i> Garota Country</a>
+                        </li>
+
                         <li>
                             <a <?php if ($currentpage == "imoveis.php") { ?> class="active" <?php }  ?> href="imoveis.php"><i class="fa fa-home fa-fw fa-3x"></i> Imóveis</a>
                         </li>
