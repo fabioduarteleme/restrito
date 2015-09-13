@@ -133,6 +133,44 @@ $totalRows_up = mysql_num_rows($up);
 
 
                                             <div class="hr-special">
+                                            <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Principal</label></h3><hr>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>Mostrar Contagem regressiva?</label>
+                                                <select class="form-control" name="indexcontagem">
+                                                    <option value="S" <?php if (!(strcmp("S", htmlentities($row_up['indexvideoativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Sim</option>
+                                                    <option value="N" <?php if (!(strcmp("N", htmlentities($row_up['indexvideoativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Não</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>Data do início</label>
+                                                <input name="indexcontagemdata" type="text" class="form-control date" value="<?php echo htmlentities($row_up['indexcontagemdata'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            </div>
+
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>Mostrar video de abertura?</label>
+                                                <select class="form-control" name="indexvideoativo">
+                                                    <option value="S" <?php if (!(strcmp("S", htmlentities($row_up['indexvideoativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Sim</option>
+                                                    <option value="N" <?php if (!(strcmp("N", htmlentities($row_up['indexvideoativo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Não</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                            <label>URL do vídeo</label>
+                                                <input name="indexvideourl" type="text" class="form-control" value="<?php echo htmlentities($row_up['indexvideourl'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            </div>
+                                            </div>
+                                            
+                                            <!--
+                                            <div class="form-group col-md-4 col-sm-4 col-xs-4">
+                                            <label>Cor Barra de Menu</label>
+                                                <div class="input-group colorpick">
+                                                    <input type="text" value="" ng-model="bgcolornav" class="form-control" />
+                                                    <span class="input-group-addon"><i></i></span>
+                                                </div>
+                                            </div>
+                                            inserir ng-style="{background: bgcolornav}"
+                                            -->
+
+                                            <div class="hr-special">
                                             <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Garota Country</label></h3><hr>
                                             
                                             <div class="form-group col-md-6 col-sm-6 col-xs-6">
@@ -164,17 +202,6 @@ $totalRows_up = mysql_num_rows($up);
                                             </div>
                                             <?php } ?>
                                             </div>
-                                            
-                                            <!--
-                                            <div class="form-group col-md-4 col-sm-4 col-xs-4">
-                                            <label>Cor Barra de Menu</label>
-                                                <div class="input-group colorpick">
-                                                    <input type="text" value="" ng-model="bgcolornav" class="form-control" />
-                                                    <span class="input-group-addon"><i></i></span>
-                                                </div>
-                                            </div>
-                                            inserir ng-style="{background: bgcolornav}"
-                                            -->
                                         </div>
                                         
                                         <div class="modal-footer">

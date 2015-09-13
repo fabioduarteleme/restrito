@@ -7,7 +7,11 @@ $tabelabd = "setup";
 
 //UPDATE DATA
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "editForm")) {
-$updateSQL = sprintf("UPDATE $tabelabd SET  keyword=%s, descricao=%s, eleicaovotacao=%s, eleicaovencedor=%s, titulo=%s, ativo=%s WHERE id=%s",
+$updateSQL = sprintf("UPDATE $tabelabd SET  indexcontagem=%s, indexcontagemdata=%s, indexvideoativo=%s, indexvideourl=%s, keyword=%s, descricao=%s, eleicaovotacao=%s, eleicaovencedor=%s, titulo=%s, ativo=%s WHERE id=%s",
+GetSQLValueString($_POST['indexcontagem'], "text"),
+GetSQLValueString($_POST['indexcontagemdata'], "date"),
+GetSQLValueString($_POST['indexvideoativo'], "text"),
+GetSQLValueString($_POST['indexvideourl'], "text"),
 GetSQLValueString($_POST['keyword'], "text"),
 GetSQLValueString($_POST['descricao'], "text"),
 GetSQLValueString($_POST['eleicaovotacao'], "text"),
