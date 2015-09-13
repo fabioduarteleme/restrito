@@ -6,6 +6,7 @@
         <script src="../js/upload/jquery.iframe-transport.js"></script>
         <script src="../js/upload/jquery.fileupload.js"></script>
         <script src="../js/upload/script.js"></script>
+        <script type="text/javascript" src="../js/jquery.maskedinput-1.3.js"></script>
         <!-- upload files end -->
 
         <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -28,17 +29,19 @@
 
         <!-- Mint Admin Scripts - Include with every page -->
         <script src="../js/mint-admin.js"></script>
-        <script src="../js/plugins/maskmoney/jquery.mask.min.js"></script>
         <script src="../js/plugins/fancyselect/fancySelect.js"></script>
         <script type="text/javascript" src="../js/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
         
         
         <script type="text/javascript">
             $(document).ready(function() {
+                $('.date').mask('00/00/0000');
+                $('.time').mask('00:00');
+                $('.phone').mask('(00) 0000-0000');
+                $('.money').mask("#.##0,00", {reverse: true});
                 $('#dataTables-example').dataTable();
                 $('#msg-sucesso').hide().show('slow').delay(1000).hide('slow');
                 $(':file').filestyle({input: false});
-                $('.maskreal').mask("#.##0,00", {reverse: true});
                 $('.fancybox').fancybox();
                 $('.colorpick').colorpicker();
             });

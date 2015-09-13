@@ -95,11 +95,11 @@ $totalRows_up = mysql_num_rows($up);
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                             <label>Telefone</label>
-                                            <input name="telefone" type="text" class="form-control" value="<?php echo htmlentities($row_up['telefone'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <input name="telefone" type="text" class="form-control phone" value="<?php echo htmlentities($row_up['telefone'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>  
                                             <div class="form-group col-md-6">
                                             <label>Celular</label>
-                                            <input name="celular" type="text" class="form-control" value="<?php echo htmlentities($row_up['celular'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <input name="celular" type="text" class="form-control phone" value="<?php echo htmlentities($row_up['celular'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>
                                         </div>
 
@@ -111,17 +111,16 @@ $totalRows_up = mysql_num_rows($up);
                                         </div>
                                         
                                         <div class="row">
-                                             <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                                <div class="">
-                                                <label>Cidade</label>
-                                                <input name="cidade" type="text" class="form-control" value="<?php echo htmlentities($row_up['cidade'], ENT_COMPAT, 'utf-8'); ?>"/>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group col-md-6 col-sm-6 col-xs-6">
                                                 <div class="">
                                                 <label>Estado</label>
-                                                <input name="estado" type="text" class="form-control" value="<?php echo htmlentities($row_up['estado'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                                <select class="form-control" id="estado" name="estado" value="<?php echo htmlentities($row_up['estado'], ENT_COMPAT, 'utf-8'); ?>"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                                <div class="">
+                                                <label>Cidade</label>
+                                                <select class="form-control" id="cidade" name="cidade" value="<?php echo htmlentities($row_up['cidade'], ENT_COMPAT, 'utf-8'); ?>"></select>
                                                 </div>
                                             </div>
                                         </div>
