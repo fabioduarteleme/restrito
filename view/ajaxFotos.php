@@ -100,7 +100,7 @@ $( "#btn-ordenar" ).click(function() {
                 var legenda = $(this).children('.legenda').val();
                 $.ajax({
                     type: "GET",
-                    url: "../controller/uploadcontroller.php",
+                    url: "../controller/uploadController.php",
                     data: {valueLegenda1: legenda, id: hiddenlegenda} ,
                 });
                 $(this).children('.fa-check').toggleClass("hidden");
