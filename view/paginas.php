@@ -121,7 +121,7 @@ $totalRows_up = mysql_num_rows($up);
                                             <label><i class="fa fa-tag"></i> Selecione o tipo de conteúdo</label>
                                             <select class="form-control" name="tipo">
                                                 <option value="pagina" <?php if (!(strcmp("pagina", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Página</option>
-                                                <option value="noticia" <?php if (!(strcmp("noticia", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Notícia</option>
+                                                <option value="diferencial" <?php if (!(strcmp("diferencial", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Diferencial</option>
                                             </select>
                                             </div>
                                         </div>
@@ -169,9 +169,9 @@ $totalRows_up = mysql_num_rows($up);
                                                 <div class="coluna">
                                                 <label><i class="fa fa-photo"></i> Imagem anexada</label>
                                                 <?php if (@$row_up['imagem'] != "") { ?>
-                                                <div class="text-center"><img width="400" src="../img/paginas/<?php echo $row_up['imagem']; ?>"><br><br><a href="paginas.php?upload=<?php echo base64_encode($row_r['id']); ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><div class="btn btn-default btn-lg"><i class="fa fa-upload"></i> Altere esta imagem</div></a><br><br></div>
+                                                <div class="text-center"><img width="400" src="../img/paginas/<?php echo $row_up['imagem']; ?>"><br><br><a href="paginas.php?upload=<?php echo $_GET['edit']; ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><div class="btn btn-default btn-lg"><i class="fa fa-upload"></i> Altere esta imagem</div></a><br><br></div>
                                                 <?php } else { ?>
-                                                <div class="text-center"><a href="paginas.php?upload=<?php echo base64_encode($row_r['id']); ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><div class="btn btn-default btn-lg"><i class="fa fa-upload"></i> Enviar uma imagem</div></a><br><br></div>
+                                                <div class="text-center"><a href="paginas.php?upload=<?php echo $_GET['edit']; ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><div class="btn btn-default btn-lg"><i class="fa fa-upload"></i> Enviar uma imagem</div></a><br><br></div>
                                                 <?php } ?>
                                                 </div>
                                             </div>
@@ -215,7 +215,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 <select class="form-control col-md-12" name="tipo" require>
                                                     <option value="" selected> Selecione uma Categoria</option>
                                                     <option value="pagina"> Página</option>
-                                                    <option value="noticia">Notícia</option>
+                                                    <option value="diferencial">Diferencial</option>
                                                 </select>
                                              </div>   
                                         </div>

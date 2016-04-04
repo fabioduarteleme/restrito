@@ -114,7 +114,8 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i> Categoria</label>
                                             <select class="form-control" name="categoria">
-                                                <option value="paginaprincipal" <?php if (!(strcmp("paginaprincipal", htmlentities($row_up['categoria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Página principal</option>
+                                                <option value="bannersuperior" <?php if (!(strcmp("bannersuperior", htmlentities($row_up['categoria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Banner Superior</option>
+                                                <option value="bannerinferior" <?php if (!(strcmp("bannerinferior", htmlentities($row_up['categoria'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Banner Inferior</option>
                                             </select>
                                             </div>
                                         </div>
@@ -172,7 +173,8 @@ $totalRows_up = mysql_num_rows($up);
                                                 <label><i class="fa fa-tag"></i> Categoria</label>
                                                 <select class="form-control" name="categoria" required>
                                                     <option value="" selected>Selecione</option>
-                                                    <option value="paginaprincipal">Página Principal</option>
+                                                    <option value="bannersuperior">Banner Superior</option>
+                                                    <option value="bannerinferior">Banner Inferior</option>
                                                 </select>
                                                 </div>
                                             </div>

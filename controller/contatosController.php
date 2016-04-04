@@ -25,10 +25,10 @@ $Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 $headers = "Content-type: text/html; charset=UTF-8";
 require_once('../phpmailer/class.phpmailer.php');
 $mail             = new PHPMailer();
-$mail->SetFrom('contato@midiano.com.br', 'Corretagem');
-$mail->AddReplyTo($_POST['email'],$_POST['nome']);
-$address = $_POST['emailusuario'];
-//$mail->AddAddress($address, $_POST['nome']);
+$mail->SetFrom('contato@garciacontroledepragas.com.br', 'Garcia Controle de Pragas');
+$mail->AddReplyTo("contato@garciacontroledepragas.com.br","Garcia Controle de Pragas");
+$address = "contato@garciacontroledepragas.com.br";
+$mail->AddAddress($address, $_POST['nome']);
 $mail->Subject    = "Contato de seu site";
 $mail->MsgHTML(
 "<table border='0' width='100%' align='center' bgcolor='#DDD'>
@@ -42,7 +42,7 @@ $mail->MsgHTML(
 <table border='0' width='600' align='center'>
 <tbody>
 <tr>
-<td><span style='font-size:xx-small;font-family:verdana,geneva'><img src='http://www.midiano.com.br/corretagem/img/logo-topo.jpg' alt='Logo Corretagem' width='600' height='130'></span></td>
+<td><span style='font-size:xx-small;font-family:verdana,geneva'><img src='http://www.garciacontroledepragas.com.br/restrito/img/cabecalho.jpg' alt='Logo' width='600' height='130'></span></td>
 </tr>
 </tbody>
 </table>
@@ -150,10 +150,11 @@ $mail->MsgHTML(
 
 if(!$mail->Send()) {
   echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-  
+} else { 
 }
+header('location:../../index.php?s=1');
 }
+
 
 //UPDATE DATA
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "editForm")) {
