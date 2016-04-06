@@ -1,26 +1,32 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.7
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 03, 2015 at 11:28 AM
--- Server version: 5.5.29
--- PHP Version: 5.4.10
+-- Host: 127.0.0.1
+-- Generation Time: 05-Abr-2016 às 05:06
+-- Versão do servidor: 5.6.17
+-- PHP Version: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Database: `paineldecontrolev2`
+-- Database: `une`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner`
+-- Estrutura da tabela `banner`
 --
 
-CREATE TABLE `banner` (
+CREATE TABLE IF NOT EXISTS `banner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` varchar(100) NOT NULL,
   `ativo` varchar(10) NOT NULL,
@@ -31,25 +37,25 @@ CREATE TABLE `banner` (
   `link` text,
   `imagem` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
--- Dumping data for table `banner`
+-- Extraindo dados da tabela `banner`
 --
 
 INSERT INTO `banner` (`id`, `idusuario`, `ativo`, `dataCadastro`, `categoria`, `titulo`, `descricao`, `link`, `imagem`) VALUES
-(10, '2', 'S', '2015-06-21', 'bannerinferior', 'Banner 02', 'banner Legal', 'http://www.google.com.br', '2_10_230868608.jpg'),
-(14, '9', 'S', '2015-06-21', 'opcao01', 'aSASas', 'Aaaaaaaaaaaaaaaa', NULL, '9_14_8513.jpg'),
-(18, '2', 'S', '2015-06-22', 'bannerinferior', 'Banner ', NULL, NULL, '2_18_2134720122.jpg'),
-(20, '1', 'S', '2015-06-23', 'bannerinferior', 'Carros Toyota', 'Toyota', NULL, '1_20_1654628296.jpg');
+(21, '1', 'S', '2016-04-03', 'bannersuperior', 'Excelencia em mÃ³veis sob medida!', NULL, NULL, '4_21_27023.jpg'),
+(22, '1', 'S', '2016-04-03', 'bannerinferior', 'Banner 01', NULL, NULL, '4_22_13342.jpg'),
+(24, '1', 'S', '2016-04-04', 'bannersuperior', 'Excelencia em mÃ³veis sob medida!', NULL, NULL, '4_24_228.jpg'),
+(25, '1', 'S', '2016-04-04', 'bannerinferior', 'Banner 03 Inferior', NULL, NULL, '4_25_1543.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carro`
+-- Estrutura da tabela `carro`
 --
 
-CREATE TABLE `carro` (
+CREATE TABLE IF NOT EXISTS `carro` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `destaque` varchar(10) NOT NULL,
@@ -71,7 +77,7 @@ CREATE TABLE `carro` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data for table `carro`
+-- Extraindo dados da tabela `carro`
 --
 
 INSERT INTO `carro` (`id`, `idusuario`, `destaque`, `data_cadastro`, `idmarca`, `idmodelo`, `titulo`, `opcional`, `observacao`, `km`, `porta`, `ano`, `cor`, `preco`, `combustivel`, `motor`, `ativo`) VALUES
@@ -85,10 +91,10 @@ INSERT INTO `carro` (`id`, `idusuario`, `destaque`, `data_cadastro`, `idmarca`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carro_ano_modelo`
+-- Estrutura da tabela `carro_ano_modelo`
 --
 
-CREATE TABLE `carro_ano_modelo` (
+CREATE TABLE IF NOT EXISTS `carro_ano_modelo` (
   `id` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `nome` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `modelo` varchar(100) COLLATE latin1_general_ci NOT NULL,
@@ -99,7 +105,7 @@ CREATE TABLE `carro_ano_modelo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `carro_ano_modelo`
+-- Extraindo dados da tabela `carro_ano_modelo`
 --
 
 INSERT INTO `carro_ano_modelo` (`id`, `nome`, `modelo`, `valor`, `tipo`) VALUES
@@ -26521,10 +26527,10 @@ INSERT INTO `carro_ano_modelo` (`id`, `nome`, `modelo`, `valor`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carro_fabricante`
+-- Estrutura da tabela `carro_fabricante`
 --
 
-CREATE TABLE `carro_fabricante` (
+CREATE TABLE IF NOT EXISTS `carro_fabricante` (
   `id` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `ativo` varchar(10) COLLATE latin1_general_ci NOT NULL DEFAULT '',
   `nome` varchar(255) COLLATE latin1_general_ci NOT NULL,
@@ -26533,7 +26539,7 @@ CREATE TABLE `carro_fabricante` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `carro_fabricante`
+-- Extraindo dados da tabela `carro_fabricante`
 --
 
 INSERT INTO `carro_fabricante` (`id`, `ativo`, `nome`, `tipo`) VALUES
@@ -26710,10 +26716,10 @@ INSERT INTO `carro_fabricante` (`id`, `ativo`, `nome`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carro_modelo`
+-- Estrutura da tabela `carro_modelo`
 --
 
-CREATE TABLE `carro_modelo` (
+CREATE TABLE IF NOT EXISTS `carro_modelo` (
   `id` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `nome` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `fabricante` varchar(100) COLLATE latin1_general_ci NOT NULL,
@@ -26723,7 +26729,7 @@ CREATE TABLE `carro_modelo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `carro_modelo`
+-- Extraindo dados da tabela `carro_modelo`
 --
 
 INSERT INTO `carro_modelo` (`id`, `nome`, `fabricante`, `tipo`) VALUES
@@ -32370,10 +32376,10 @@ INSERT INTO `carro_modelo` (`id`, `nome`, `fabricante`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `config`
+-- Estrutura da tabela `config`
 --
 
-CREATE TABLE `config` (
+CREATE TABLE IF NOT EXISTS `config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `logo` text NOT NULL,
@@ -32384,19 +32390,19 @@ CREATE TABLE `config` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `config`
+-- Extraindo dados da tabela `config`
 --
 
 INSERT INTO `config` (`id`, `titulo`, `logo`, `background`, `favicon`, `termos`) VALUES
-(1, 'Corretagem Net | Administrador Geral', '1016565332.png', '1212271678.jpg', '643701087.ico', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nunc nunc. Etiam placerat eget nulla eget posuere. Mauris eu vehicula tortor. Praesent efficitur, nunc quis molestie pulvinar, felis neque commodo metus, ut faucibus nulla ipsum ut nisl. Phasellus laoreet tortor ut diam aliquam, ac eleifend sem pulvinar. Nulla sit amet elit eget erat volutpat auctor. Nullam eleifend eros sed ullamcorper pretium. Vestibulum lobortis lorem est, et dapibus nisl auctor eu. Praesent sit amet scelerisque risus, eget hendrerit diam. Pellentesque eu augue hendrerit, luctus ipsum vitae, ornare arcu. Morbi eget nisi libero. Mauris egestas ut orci quis lobortis.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mi enim, dapibus vitae nisi nec, auctor vulputate tortor. Nunc imperdiet, libero vitae volutpat convallis, purus ante lacinia leo, sed laoreet purus sem vitae ex. Sed convallis, metus vel mollis rhoncus, nulla ipsum mattis tellus, a ullamcorper mauris dolor id lacus. Ut ut iaculis metus. Nullam tempus diam id nisl mattis euismod. Etiam pulvinar dignissim turpis, quis vestibulum sapien convallis sed. Suspendisse turpis felis, euismod at suscipit sed, commodo non orci.');
+(1, 'Administrador Geral', '1016565332.png', '1212271678.jpg', '643701087.ico', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nunc nunc. Etiam placerat eget nulla eget posuere. Mauris eu vehicula tortor. Praesent efficitur, nunc quis molestie pulvinar, felis neque commodo metus, ut faucibus nulla ipsum ut nisl. Phasellus laoreet tortor ut diam aliquam, ac eleifend sem pulvinar. Nulla sit amet elit eget erat volutpat auctor. Nullam eleifend eros sed ullamcorper pretium. Vestibulum lobortis lorem est, et dapibus nisl auctor eu. Praesent sit amet scelerisque risus, eget hendrerit diam. Pellentesque eu augue hendrerit, luctus ipsum vitae, ornare arcu. Morbi eget nisi libero. Mauris egestas ut orci quis lobortis.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mi enim, dapibus vitae nisi nec, auctor vulputate tortor. Nunc imperdiet, libero vitae volutpat convallis, purus ante lacinia leo, sed laoreet purus sem vitae ex. Sed convallis, metus vel mollis rhoncus, nulla ipsum mattis tellus, a ullamcorper mauris dolor id lacus. Ut ut iaculis metus. Nullam tempus diam id nisl mattis euismod. Etiam pulvinar dignissim turpis, quis vestibulum sapien convallis sed. Suspendisse turpis felis, euismod at suscipit sed, commodo non orci.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contatos`
+-- Estrutura da tabela `contatos`
 --
 
-CREATE TABLE `contatos` (
+CREATE TABLE IF NOT EXISTS `contatos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` varchar(100) NOT NULL,
   `ativo` varchar(50) DEFAULT NULL,
@@ -32415,10 +32421,10 @@ CREATE TABLE `contatos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresa`
+-- Estrutura da tabela `empresa`
 --
 
-CREATE TABLE `empresa` (
+CREATE TABLE IF NOT EXISTS `empresa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` varchar(100) NOT NULL,
   `ativo` varchar(10) NOT NULL,
@@ -32440,22 +32446,19 @@ CREATE TABLE `empresa` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `empresa`
+-- Extraindo dados da tabela `empresa`
 --
 
 INSERT INTO `empresa` (`id`, `idusuario`, `ativo`, `nome`, `cnpj`, `documento`, `endereco`, `telefone`, `celular`, `cidade`, `estado`, `email`, `site`, `fanpage`, `apresentacao`, `mapa`, `imagem`) VALUES
-(1, '1', 'S', 'Pro Veiculos', 'asdfa', '', 'Rua Oliveira', '4433222332', '4422333322', 'Maringa', 'PR', 'paulao@midiano.com', 'www.paulo.com.br', 'www.fb.com', 'Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Nulla facilisi. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.\r\n\r\nFusce vulputate eleifend sapien. Vestibulum fringilla pede sit amet augue. Ut leo. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.', 'Embedado Pelo Google', ''),
-(2, '2', 'S', 'Fabio Duarte', '33343434', '3223', 'Rua Marciano Halchuck 334', '(44) 3233-2222', '(44) 9999-2222', 'MaringÃ¡', 'ParanÃ¡', 'duarteleme@gmail.com', 'www.google.com.br', 'www.fb.com', 'Nulla porta dolor. Praesent egestas neque eu enim. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque posuere. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam imperdiet imperdiet orci. Vivamus euismod mauris. Aliquam eu nunc. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo. Praesent nonummy mi in odio.', '', '38338645.jpg'),
-(5, '3', 'S', 'Sua Empresa', '', '', '', '', '', '', '', 'duarteleme@gmail.com', '', '', 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Aenean commodo ligula eget dolor. Donec mollis hendrerit risus. Nunc nec neque. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\nIn ut quam vitae odio lacinia tincidunt. Curabitur suscipit suscipit tellus. Phasellus viverra nulla ut metus varius laoreet. Praesent adipiscing. Praesent venenatis metus at tortor pulvinar varius.\nDonec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nulla porta dolor. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Curabitur ullamcorper ultricies nisi. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.\nIn ut quam vitae odio lacinia tincidunt. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Aliquam eu nunc. Morbi vestibulum volutpat enim. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.\nUt leo. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Nunc interdum lacus sit amet orci.', '', ''),
-(7, '4', 'S', 'Sua Empresa', '', '', '', '', '', '', '', 'duarteleme@gmail.com', '', '', 'Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Aenean commodo ligula eget dolor. Donec mollis hendrerit risus. Nunc nec neque. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros.\nIn ut quam vitae odio lacinia tincidunt. Curabitur suscipit suscipit tellus. Phasellus viverra nulla ut metus varius laoreet. Praesent adipiscing. Praesent venenatis metus at tortor pulvinar varius.\nDonec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nulla porta dolor. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Curabitur ullamcorper ultricies nisi. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.\nIn ut quam vitae odio lacinia tincidunt. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Aliquam eu nunc. Morbi vestibulum volutpat enim. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.\nUt leo. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Nunc interdum lacus sit amet orci.', '', '');
+(7, '1', 'S', 'Website', '038837444333333333', '', '', '', '', 'MaringÃ¡', 'PR', 'duarteleme@gmail.com', '', '', 'Nunc sed turpis. Nam adipiscing. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Quisque rutrum. In ac felis quis tortor malesuada pretium.\r\n\r\nIn hac habitasse platea dictumst. Ut tincidunt tincidunt erat. Curabitur a felis in nunc fringilla tristique. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Duis lobortis massa imperdiet quam.', '', '22524.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fotos`
+-- Estrutura da tabela `fotos`
 --
 
-CREATE TABLE `fotos` (
+CREATE TABLE IF NOT EXISTS `fotos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dataCadastro` varchar(100) NOT NULL,
   `idusuario` varchar(50) NOT NULL,
@@ -32470,60 +32473,13 @@ CREATE TABLE `fotos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=454 ;
 
---
--- Dumping data for table `fotos`
---
-
-INSERT INTO `fotos` (`id`, `dataCadastro`, `idusuario`, `tipo`, `idrelacionamento`, `destaque`, `titulo`, `legenda1`, `legenda2`, `nomepath`, `ordem`) VALUES
-(397, '2015-06-24', '1', 'galerias', '317', 'N', 'Beto do RHasdfasdfa', NULL, NULL, '1_317_1247492027.jpg', 0),
-(398, '2015-06-24', '1', 'galerias', '317', 'N', 'Felipe', NULL, NULL, '1_317_1796413914.jpeg', 0),
-(399, '2015-06-24', '1', 'galerias', '317', 'N', 'Roberto Carlos', NULL, NULL, '1_317_756222442.jpg', 0),
-(400, '2015-06-24', '1', 'galerias', '317', 'N', '1_1.jpg', NULL, NULL, '1_317_1501313818.jpg', 0),
-(401, '2015-06-24', '1', 'galerias', '317', 'N', 'images.jpeg', NULL, NULL, '1_317_1562311485.jpeg', 0),
-(407, '2015-06-24', '1', 'galerias', '319', 'N', 'Nome 01', NULL, NULL, '1_319_23858187.jpg', 0),
-(408, '2015-06-24', '1', 'galerias', '319', 'N', 'Nome 02', NULL, NULL, '1_319_1516748837.jpg', 0),
-(409, '2015-06-24', '1', 'galerias', '319', 'N', 'Nome 03', NULL, NULL, '1_319_1812373094.jpg', 0),
-(410, '2015-06-24', '1', 'galerias', '319', 'N', 'Nome 04', NULL, NULL, '1_319_1180916716.jpg', 0),
-(411, '2015-06-24', '1', 'galerias', '319', 'N', 'Nome 05', NULL, NULL, '1_319_531935561.jpg', 0),
-(412, '2015-06-24', '1', 'galerias', '318', 'N', 'semfoto.jpg', NULL, NULL, '1_318_1849997235.jpg', 0),
-(413, '2015-06-24', '1', 'galerias', '318', 'N', 'semfoto.jpg', NULL, NULL, '1_318_2079491955.jpg', 0),
-(414, '2015-06-24', '1', 'galerias', '318', 'N', 'semfoto.jpg', NULL, NULL, '1_318_372409104.jpg', 0),
-(415, '2015-06-24', '1', 'galerias', '318', 'N', 'semfoto.jpg', NULL, NULL, '1_318_228302355.jpg', 0),
-(423, '2015-07-01', '2', 'imovel', '6', 'N', '2507_1.jpg', NULL, NULL, '2_6_1936473024.jpg', 1),
-(425, '2015-07-01', '2', 'imovel', '6', 'N', '5884_4.jpg', NULL, NULL, '2_6_394599136.jpg', 2),
-(426, '2015-07-01', '2', 'imovel', '6', 'N', 'brand_new_talent_young_big_tits_brunette_pornstar_charley_atwell_808449614.jpg', NULL, NULL, '2_6_1349649881.jpg', 3),
-(427, '2015-07-01', '2', 'imovel', '6', 'N', 'images.jpeg', NULL, NULL, '2_6_106033144.jpeg', 5),
-(428, '2015-07-01', '2', 'imovel', '6', 'S', 'lindsay_marie_pornstar_blonde_1797.jpg', NULL, NULL, '2_6_1591345558.jpg', 4),
-(430, '2015-07-01', '2', 'imovel', '24', 'N', 'nikkibenz1.jpg', NULL, NULL, '2_24_1227217896.jpg', 2),
-(431, '2015-07-01', '2', 'imovel', '24', 'N', 'images (1).jpeg', NULL, NULL, '2_24_1291621497.jpeg', 3),
-(432, '2015-07-01', '2', 'imovel', '24', 'N', 'lisa-ann-deepthroat.jpg', NULL, NULL, '2_24_262965213.jpg', 4),
-(433, '2015-07-01', '2', 'imovel', '24', 'S', '1_1.jpg', NULL, NULL, '2_24_1881330757.jpg', 1),
-(434, '2015-07-01', '2', 'imovel', '24', 'N', 'images.jpeg', NULL, NULL, '2_24_1057322622.jpeg', 5),
-(435, '2015-07-02', '2', 'imovel', '19', 'N', '2507_1.jpg', NULL, NULL, '2_19_1597638762.jpg', 4),
-(437, '2015-07-02', '2', 'imovel', '19', 'N', '5884_4.jpg', NULL, NULL, '2_19_1963813411.jpg', 1),
-(438, '2015-07-02', '2', 'imovel', '19', 'S', 'images.jpeg', NULL, NULL, '2_19_406929939.jpeg', 5),
-(439, '2015-07-02', '2', 'imovel', '19', 'N', 'brand_new_talent_young_big_tits_brunette_pornstar_charley_atwell_808449614.jpg', NULL, NULL, '2_19_1755821617.jpg', 3),
-(440, '2015-07-02', '2', 'imovel', '19', 'N', 'lindsay_marie_pornstar_blonde_1797.jpg', NULL, NULL, '2_19_1002249842.jpg', 2),
-(441, '2015-07-02', '2', 'imovel', '16', 'N', 'Anal-Sex-xxx-Porn-images-Anal-Sex-Porn-Fuck-Top-Bebe-Boobs-Nude-Naked-Girl-Photos-1.jpg', NULL, NULL, '2_16_162632963.jpg', 3),
-(442, '2015-07-02', '2', 'imovel', '16', 'N', 'Mike-in-Brazil-Dany-Mel.jpg', NULL, NULL, '2_16_606897170.jpg', 4),
-(443, '2015-07-02', '2', 'imovel', '16', 'S', 'Tainah-Mike-in-Brazil.jpg', NULL, NULL, '2_16_516982316.jpg', 2),
-(444, '2015-07-02', '2', 'imovel', '16', 'N', 'anal-902660.jpg', NULL, NULL, '2_16_269996480.jpg', 5),
-(445, '2015-07-02', '2', 'imovel', '16', 'N', 'blonde_small_chick_is_in_anal_pain_1293195170.jpg', NULL, NULL, '2_16_1049598763.jpg', 1),
-(447, '2015-07-02', '2', 'imovel', '15', 'N', 'Raylene.jpg', NULL, NULL, '2_15_1890329098.jpg', 0),
-(448, '2015-07-02', '2', 'imovel', '15', 'S', '3000x1909_samantha-saint-blonde-sexy-babe-pornstar-samatha.jpg', NULL, NULL, '2_15_490289875.jpg', 0),
-(449, '2015-07-02', '2', 'imovel', '15', 'N', 'anal-111816.jpg', NULL, NULL, '2_15_773081714.jpg', 0),
-(450, '2015-07-02', '2', 'imovel', '15', 'N', 'shemale-pornstar-steffany-smith-03.jpg', NULL, NULL, '2_15_1202621476.jpg', 0),
-(451, '2015-07-02', '2', 'imovel', '15', 'N', 'nelly-shemale-pornstar-01.jpg', NULL, NULL, '2_15_1111616869.jpg', 0),
-(452, '2015-07-02', '2', 'imovel', '15', 'N', '1920x1080_malena-morgan-pornstar-brunette-lingerie-sexy.jpg', NULL, NULL, '2_15_1907678927.jpg', 0),
-(453, '2015-07-02', '2', 'imovel', '15', 'N', 'JjN_3dOyJYQ.jpg', NULL, NULL, '2_15_2082737444.jpg', 0);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galerias`
+-- Estrutura da tabela `galerias`
 --
 
-CREATE TABLE `galerias` (
+CREATE TABLE IF NOT EXISTS `galerias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dataCadastro` varchar(100) NOT NULL,
   `ativo` varchar(10) NOT NULL,
@@ -32533,22 +32489,13 @@ CREATE TABLE `galerias` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=320 ;
 
---
--- Dumping data for table `galerias`
---
-
-INSERT INTO `galerias` (`id`, `dataCadastro`, `ativo`, `idusuario`, `titulo`, `descricao`) VALUES
-(316, '', 'N', '', 'Bundaa', 'Bunda gbrande'),
-(318, '2015-06-23', 'S', '1', 'Institucional', 'Galeria Institucional'),
-(319, '2015-06-24', 'S', '1', 'Funcionarios', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `imovel`
+-- Estrutura da tabela `imovel`
 --
 
-CREATE TABLE `imovel` (
+CREATE TABLE IF NOT EXISTS `imovel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `dataCadastro` date NOT NULL,
   `horaCadastro` time NOT NULL,
@@ -32571,7 +32518,7 @@ CREATE TABLE `imovel` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `imovel`
+-- Extraindo dados da tabela `imovel`
 --
 
 INSERT INTO `imovel` (`id`, `dataCadastro`, `horaCadastro`, `idusuario`, `ativo`, `destaque`, `categoria`, `tipo`, `nome`, `endereco`, `complemento`, `valor`, `suites`, `quartos`, `estado`, `cidade`, `referencia`, `detalhes`) VALUES
@@ -32586,40 +32533,32 @@ INSERT INTO `imovel` (`id`, `dataCadastro`, `horaCadastro`, `idusuario`, `ativo`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paginas`
+-- Estrutura da tabela `paginas`
 --
 
-CREATE TABLE `paginas` (
+CREATE TABLE IF NOT EXISTS `paginas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `data_cadastro` date NOT NULL,
   `ativo` varchar(10) NOT NULL,
+  `tipo` varchar(100) DEFAULT NULL,
   `titulo` varchar(500) NOT NULL,
   `texto01` text,
   `texto02` text,
   `texto03` text,
   `texto04` text,
-  `idgaleria` int(11) NOT NULL,
+  `idgaleria` int(11) DEFAULT NULL,
   `imagem` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `paginas`
---
-
-INSERT INTO `paginas` (`id`, `idusuario`, `data_cadastro`, `ativo`, `titulo`, `texto01`, `texto02`, `texto03`, `texto04`, `idgaleria`, `imagem`) VALUES
-(1, 1, '2015-06-22', 'S', 'Quem somos', 'Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Etiam rhoncus. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Aliquam erat volutpat. Praesent egestas tristique nibh. In ac felis quis tortor malesuada pretium. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Morbi ac felis. Etiam iaculis nunc ac metus. Nunc sed turpis.Integer tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci.. Vivamus aliquet elit ac nisl. Aenean imperdiet.\r\n\r\nCurabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Sed libero. Vestibulum dapibus nunc ac augue. Fusce commodo aliquam arcu. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.\r\n\r\nIn turpis. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Cras sagittis. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Ut id nisl quis enim dignissim sagittis.\r\n\r\nFusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec posuere vulputate arcu. Morbi mattis ullamcorper velit. Maecenas malesuada. Fusce convallis metus id felis luctus adipiscing.Fusce pharetra convallis urna. Cras non dolor. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam commodo suscipit quam. Praesent venenatis metus at tortor pulvinar varius. Fusce ac felis sit amet ligula pharetra condimentum. Fusce commodo aliquam arcu. Morbi vestibulum volutpat enim. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.', 'opaaaasdf', 'asdf boa ', 'asdf mesmo', 317, ''),
-(2, 1, '2015-06-23', 'S', 'Nossa Equipe', 'Curabitur blandit mollis lacus. Suspendisse eu ligula. Maecenas egestas arcu quis ligula mattis placerat. Fusce vulputate eleifend sapien. Vivamus aliquet elit ac nisl. Sed libero. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo. Curabitur vestibulum aliquam leo. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Praesent congue erat at massa.Vivamus laoreet. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Fusce fermentum. Sed hendrerit.', NULL, NULL, NULL, 319, ''),
-(3, 1, '2015-06-24', 'S', 'Fale Conosco', 'Duis leo. Fusce fermentum odio nec arcu. Aenean vulputate eleifend tellus. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.Nulla consequat massa quis enim. Morbi nec metus. Pellentesque dapibus hendrerit tortor. Phasellus nec sem in justo pellentesque facilisis. Nunc sed turpis.Sed in libero ut nibh placerat accumsan. Donec mollis hendrerit risus. Fusce vulputate eleifend sapien. Fusce vulputate eleifend sapien. Etiam rhoncus.\r\n\r\nAv. Colombo, esquina com Av. Bento Munhoz da Rocha, S/N Parque Industrial II \r\nCEP: 87013-010\r\nMaringÃ¡ - PR \r\nFone: (44) 3221-5000\r\nFax:   (44) 3221-5010', NULL, NULL, NULL, 318, '');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setup`
+-- Estrutura da tabela `setup`
 --
 
-CREATE TABLE `setup` (
+CREATE TABLE IF NOT EXISTS `setup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `ativo` varchar(5) NOT NULL,
@@ -32635,23 +32574,19 @@ CREATE TABLE `setup` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `setup`
+-- Extraindo dados da tabela `setup`
 --
 
 INSERT INTO `setup` (`id`, `idusuario`, `ativo`, `titulo`, `descricao`, `hometitulo`, `homesubtitulo`, `keyword`, `favicon`, `imagem`, `background`) VALUES
-(1, 2, 'S', 'Template 01', 'Descricao do site', 'Seja bem-vindo', 'Sua nova casa aqui', 'auto, automoveis, maringa', '821826023.ico', '1545400427.jpg', '1113867118.jpg'),
-(2, 16, 'S', 'Insira um TÃ­tulo para a PÃ¡gina', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', ''),
-(3, 3, 'S', 'Insira um TÃ­tulo para a PÃ¡gina', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', ''),
-(4, 3, 'S', 'Insira um TÃ­tulo para a PÃ¡gina', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', ''),
-(5, 4, 'S', 'Insira um TÃ­tulo para a PÃ¡gina', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', '');
+(5, 1, 'S', 'Bella Casa | Seja bem-vindo', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `data_cadastro` date NOT NULL,
   `hora_cadastro` date NOT NULL,
@@ -32667,13 +32602,15 @@ CREATE TABLE `usuario` (
   `nivel` varchar(5) DEFAULT NULL,
   `imagem` text NOT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `usuario`
+-- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `data_cadastro`, `hora_cadastro`, `ativo`, `verificado`, `nome`, `email`, `telefone`, `cpf`, `cidade`, `estado`, `senha`, `nivel`, `imagem`) VALUES
-(1, '0000-00-00', '2015-06-21', 'S', '', 'Fabio Duarte', 'contato@midiano.com.br', '', '', '', '', 'oneone', '1', ''),
-(2, '2015-03-05', '2015-06-21', 'S', '', 'Fabio Duarte', 'duartelemae@gmail.com', '', '', '', '', 'oneone', '0', '2_Mg==_95887137.jpg'),
-(4, '2015-07-03', '0000-00-00', 'S', 'S', 'fabio duarte', 'duarteleme@gmail.com', '(44)3334-4343', '979.879.879-87', 'MaringÃ¡', 'PR', 'oneone', '0', '');
+(1, '2015-07-03', '0000-00-00', 'S', 'S', 'Administrador', 'admin@admin', '(44)9999-9999', '979.879.879-87', 'MaringÃ¡', 'PR', '1a2b3c', '0', '');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
