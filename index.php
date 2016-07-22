@@ -35,13 +35,17 @@
                                     <td><input type="submit" class="btn btn-primary btn-lg btn-block" name="button" id="button" value="Acesse" /></td>
                                     <?php if (@$_GET['ativado'] == "s") { ?>
                                     <?php } else { ?>
+                                    <!--
                                     <td><div class="text-center"><div class="panel-title"><br>ou<br><br></div></div></td>
+                                    -->
                                     <?php } ?>
                                 </fieldset>
                             </form>
                             <?php if (@$_GET['ativado'] == "s") { ?>
                             <?php } else { ?>
+                            <!--
                             <a href="cadastre-se.php"><button class="btn btn-default btn-lg btn-block signup-btn"><i class="fa fa-user-plus"></i> Cadastre-se</button></a>
+                            -->
                             <?php } ?>
                             <!--
                             <a href="facebook/fbconfig.php" class="btn btn-fb btn-lg btn-block signup-btn"><i class="fa fa-facebook"></i> Cadastre-se com Facebook</a>

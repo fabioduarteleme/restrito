@@ -131,7 +131,7 @@ $totalRows_up = mysql_num_rows($up);
                                             <?php } ?>
                                             
 
-
+                                            <!--
                                             <div class="hr-special">
                                             <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Principal</label></h3><hr>
                                             <div class="form-group col-md-6 col-sm-6 col-xs-6">
@@ -158,6 +158,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 <input name="indexvideourl" type="text" class="form-control" value="<?php echo htmlentities($row_up['indexvideourl'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>
                                             </div>
+                                            -->
                                             
                                             <!--
                                             <div class="form-group col-md-4 col-sm-4 col-xs-4">
@@ -169,7 +170,7 @@ $totalRows_up = mysql_num_rows($up);
                                             </div>
                                             inserir ng-style="{background: bgcolornav}"
                                             -->
-
+                                            <!--
                                             <div class="hr-special">
                                             <h3 class="text-center"><label> <i class="fa fa-cog"></i> Configurações na Página Garota Country</label></h3><hr>
                                             
@@ -202,7 +203,9 @@ $totalRows_up = mysql_num_rows($up);
                                             </div>
                                             <?php } ?>
                                             </div>
+                                            -->
                                         </div>
+
                                         
                                         <div class="modal-footer">
                                             <a href="javascript:history.back()"><button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button></a>

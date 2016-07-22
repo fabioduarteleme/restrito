@@ -4,8 +4,8 @@ include('../include/_restrito.php');
 include('../classes/function.php');
 
 // INFO PAGE
-$pagetitle ="Candidatas";
-$pagebtn ="Candidata";
+$pagetitle ="Representantes";
+$pagebtn ="Representante";
 $tabelabd ="eleicao";
 $controller = "../controller/eleicaoController.php";
 
@@ -107,7 +107,7 @@ $totalRows_up = mysql_num_rows($up);
                                         <hr>
 
                                         <div class="row">
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i> Quer esta candidata aparecendo no site?</label>
                                             <select class="form-control" name="ativo">
@@ -116,18 +116,17 @@ $totalRows_up = mysql_num_rows($up);
                                             </select>
                                             </div>
                                         </div>
-                                        </div>
-
-                                        <div class="row">
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i> Selecione o tipo de conteúdo</label>
                                             <select class="form-control" name="tipo">
-                                                <option value="garotacountry" <?php if (!(strcmp("garotacountry", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Garota Country</option>
+                                                <option value="representantes" <?php if (!(strcmp("representantes", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Representantes</option>
                                             </select>
                                             </div>
                                         </div>
+                                        </div>
 
+                                        <!--
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i>Esta candidata foi a vencedora?</label>
@@ -137,14 +136,15 @@ $totalRows_up = mysql_num_rows($up);
                                             </select>
                                             </div>
                                         </div>
-                                        </div>
+                                        
+                                    -->
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                             <input placeholder="Nome" name="nome" type="text" class="form-control" value="<?php echo htmlentities($row_up['nome'], ENT_COMPAT, 'utf-8'); ?>" required/>
                                             </div>
                                             <div class="form-group col-md-6">
-                                            <input placeholder="Idade" name="idade" type="text" class="form-control" value="<?php echo htmlentities($row_up['idade'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <input placeholder="Estado" name="idade" type="text" class="form-control" value="<?php echo htmlentities($row_up['idade'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>
                                         </div>
 
@@ -156,13 +156,14 @@ $totalRows_up = mysql_num_rows($up);
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                            <input placeholder="Perfil no Facebook" name="facebook" type="text" class="form-control" value="<?php echo htmlentities($row_up['facebook'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <input placeholder="Telefone" name="facebook" type="text" class="form-control" value="<?php echo htmlentities($row_up['facebook'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>
                                             <div class="form-group col-md-6">
-                                            <input placeholder="Perfil no Instagram" name="instagram" type="text" class="form-control" value="<?php echo htmlentities($row_up['instagram'], ENT_COMPAT, 'utf-8'); ?>"/>
+                                            <input placeholder="E-mail" name="instagram" type="text" class="form-control" value="<?php echo htmlentities($row_up['instagram'], ENT_COMPAT, 'utf-8'); ?>"/>
                                             </div>
                                         </div>
 
+                                        <!--
                                         <div class="row">
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <div class="coluna">
@@ -176,6 +177,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 </div>
                                             </div>
                                         </div>
+                                        -->
 
                                          <div class="row">
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
@@ -207,7 +209,7 @@ $totalRows_up = mysql_num_rows($up);
 
 						<hr>
                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal">
-                            <i class="fa fa-edit"></i> Adicionar nova <?php echo $pagebtn; ?>
+                            <i class="fa fa-edit"></i> Adicionar novo <?php echo $pagebtn; ?>
                         </button>
 						<br /><br />
 
@@ -225,7 +227,7 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="form-group col-md-12">
                                                 <select class="form-control col-md-12" name="tipo" require>
                                                     <option value=""> Selecione uma Categoria</option>
-                                                    <option value="garotacountry" selected> Garota Country</option>
+                                                    <option value="representantes" selected> Representante</option>
                                                 </select>
                                              </div>   
                                         </div>
@@ -236,8 +238,8 @@ $totalRows_up = mysql_num_rows($up);
                                             </div> 
 
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input placeholder="Idade" name="idade" type="text" class="form-control" value=""/>
-                                            </div> 
+                                            <select class="form-control" id="estado" name="idade" value="<?php echo htmlentities($row_up['estado'], ENT_COMPAT, 'utf-8'); ?>"></select>
+                                            </div>
                                         </div>
                                         
                                         <div class="row">
@@ -248,14 +250,15 @@ $totalRows_up = mysql_num_rows($up);
 
                                         <div class="row">
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input placeholder="Perfil no Facebook" name="facebook" type="text" class="form-control" value=""/>
+                                            <input placeholder="Telefone" name="facebook" type="text" class="form-control" value=""/>
                                             </div> 
 
                                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input placeholder="Perfil no Instagram" name="instagam" type="text" class="form-control" value=""/>
+                                            <input placeholder="Email" name="instagram" type="text" class="form-control" value=""/>
                                             </div> 
                                         </div>
 
+                                        <!--
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <div class="row">    
                                                 <div class="coluna">
@@ -269,6 +272,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 </div>
                                             </div>
                                         </div>
+                                        -->
 
     									<div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -303,7 +307,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 <th class="tab-id text-center">ID</th>
                                                 <th class="tab-status text-center">ATIVO</th>
                                                 <th class="tab-status text-center">FOTO</th>
-                                                <th class="tab-status text-center">VOTOS</th>
+                                                <th class="tab-nome text-center">REGIÃO</th>
                                                 <th class="tab-nome">NOME</th>
                                                 <th class="tab-acoes text-center">AÇÕES</th>
                                             </tr>
@@ -323,7 +327,7 @@ $totalRows_up = mysql_num_rows($up);
                                                 <?php } else { ?>
                                                 <td class="text-tab text-center"><a href="?upload=<?php echo base64_encode($row_r['id']); ?>&iduser=<?php echo base64_encode($row_user["idusuario"]); ?>"><div class="imagem-tab"><i class="fa fa-ban"></i> Sem imagem</div></a></td>
                                                 <?php } ?>
-                                                <td class="text-tab text-center"><?php echo $row_r['votos']; ?></td>
+                                                <td class="text-tab text-center"><b><?php echo $row_r['idade']; ?></b></td>
                                                 <td class="text-tab"><?php echo limitar($row_r['nome'],50); ?></td>
                                                 <td>
                                                     <div class="dropdown">

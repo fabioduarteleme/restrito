@@ -47,15 +47,15 @@
                         <li>
                             <a <?php if ($currentpage == "banner.php") { ?> class="active" <?php }  ?> href="banner.php"><i class="fa fa-photo fa-fw fa-3x"></i> Banners</a>
                         </li>
-
+                   
                         <li>
-                            <a <?php if ($currentpage == "eleicao.php") { ?> class="active" <?php }  ?> href="eleicao.php"><i class="fa fa-users fa-fw fa-3x"></i> Garota Country</a>
+                            <a <?php if ($currentpage == "eleicao.php") { ?> class="active" <?php }  ?> href="eleicao.php"><i class="fa fa-users fa-fw fa-3x"></i> Representantes</a>
                         </li>
-
+                        <!--
                         <li>
                             <a <?php if ($currentpage == "eventos.php") { ?> class="active" <?php }  ?> href="eventos.php"><i class="fa fa-calendar fa-fw fa-3x"></i> Shows e Eventos</a>
                         </li>
-
+                        -->
                         <!--
                         <li>
                             <a <?php if ($currentpage == "imoveis.php") { ?> class="active" <?php }  ?> href="imoveis.php"><i class="fa fa-home fa-fw fa-3x"></i> Imóveis</a>

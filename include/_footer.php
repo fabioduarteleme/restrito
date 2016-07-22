@@ -21,7 +21,7 @@
         <script type="text/javascript" src="../js/plugins/intro/intro.js"></script>
         
         <!-- UPLOAD FILES -->
-        <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+        <script src="../js/angular.min.js"></script>
         <script src="../js/angular-file-upload.min.js"></script>
         <script src="../js/controllers.js"></script>
         <script src="../js/directives.js"></script>
@@ -54,6 +54,34 @@
             estado: document.getElementById('estado')
         });
         </script>
+
+        <!-- TEXT EDITOR -->
+        <script type="text/javascript" src="../js/froala/js/froala_editor.min.js"></script>
+        <script type="text/javascript" src="../js/froala/js/plugins/table.min.js"></script>
+        <script type="text/javascript" src="../js/froala/js/plugins/code_view.min.js"></script>
+        <script src='../js/froala/js/languages/pt_br.js'></script>
+        <script>
+          $(function(){
+           $('#add').froalaEditor({
+               tableResizerOffset: 50,
+               language: 'pt_br',
+               height: 150,
+               toolbarSticky: false,
+               toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'clearFormatting', 'insertTable', 'html'],
+               toolbarButtonsXS: ['undo', 'redo' , '-', 'bold', 'italic', 'underline']
+             })
+           $('#edit').froalaEditor({
+               tableResizerOffset: 50,
+               language: 'pt_br',
+               height: 150,
+               toolbarSticky: false,
+               toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline', 'clearFormatting', 'insertTable', 'html'],
+               toolbarButtonsXS: ['undo', 'redo' , '-', 'bold', 'italic', 'underline']
+             })
+          });
+        </script>
+
+
     </body>
 
 </html>

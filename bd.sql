@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Abr-2016 às 05:06
+-- Generation Time: 22-Jul-2016 às 03:15
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,8 +17,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `une`
+-- Database: `cinfer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `arquivos`
+--
+
+CREATE TABLE IF NOT EXISTS `arquivos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idusuario` int(11) DEFAULT NULL,
+  `data_cadastro` varchar(50) DEFAULT NULL,
+  `titulo` text,
+  `nomepath` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -37,17 +52,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `link` text,
   `imagem` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
-
---
--- Extraindo dados da tabela `banner`
---
-
-INSERT INTO `banner` (`id`, `idusuario`, `ativo`, `dataCadastro`, `categoria`, `titulo`, `descricao`, `link`, `imagem`) VALUES
-(21, '1', 'S', '2016-04-03', 'bannersuperior', 'Excelencia em mÃ³veis sob medida!', NULL, NULL, '4_21_27023.jpg'),
-(22, '1', 'S', '2016-04-03', 'bannerinferior', 'Banner 01', NULL, NULL, '4_22_13342.jpg'),
-(24, '1', 'S', '2016-04-04', 'bannersuperior', 'Excelencia em mÃ³veis sob medida!', NULL, NULL, '4_24_228.jpg'),
-(25, '1', 'S', '2016-04-04', 'bannerinferior', 'Banner 03 Inferior', NULL, NULL, '4_25_1543.jpg');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 -- --------------------------------------------------------
 
@@ -32394,7 +32399,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 --
 
 INSERT INTO `config` (`id`, `titulo`, `logo`, `background`, `favicon`, `termos`) VALUES
-(1, 'Administrador Geral', '1016565332.png', '1212271678.jpg', '643701087.ico', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nunc nunc. Etiam placerat eget nulla eget posuere. Mauris eu vehicula tortor. Praesent efficitur, nunc quis molestie pulvinar, felis neque commodo metus, ut faucibus nulla ipsum ut nisl. Phasellus laoreet tortor ut diam aliquam, ac eleifend sem pulvinar. Nulla sit amet elit eget erat volutpat auctor. Nullam eleifend eros sed ullamcorper pretium. Vestibulum lobortis lorem est, et dapibus nisl auctor eu. Praesent sit amet scelerisque risus, eget hendrerit diam. Pellentesque eu augue hendrerit, luctus ipsum vitae, ornare arcu. Morbi eget nisi libero. Mauris egestas ut orci quis lobortis.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mi enim, dapibus vitae nisi nec, auctor vulputate tortor. Nunc imperdiet, libero vitae volutpat convallis, purus ante lacinia leo, sed laoreet purus sem vitae ex. Sed convallis, metus vel mollis rhoncus, nulla ipsum mattis tellus, a ullamcorper mauris dolor id lacus. Ut ut iaculis metus. Nullam tempus diam id nisl mattis euismod. Etiam pulvinar dignissim turpis, quis vestibulum sapien convallis sed. Suspendisse turpis felis, euismod at suscipit sed, commodo non orci.');
+(1, 'Administrador Geral', 'logo-default.png', 'bg-default.jpg', '643701087.ico', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nunc nunc. Etiam placerat eget nulla eget posuere. Mauris eu vehicula tortor. Praesent efficitur, nunc quis molestie pulvinar, felis neque commodo metus, ut faucibus nulla ipsum ut nisl. Phasellus laoreet tortor ut diam aliquam, ac eleifend sem pulvinar. Nulla sit amet elit eget erat volutpat auctor. Nullam eleifend eros sed ullamcorper pretium. Vestibulum lobortis lorem est, et dapibus nisl auctor eu. Praesent sit amet scelerisque risus, eget hendrerit diam. Pellentesque eu augue hendrerit, luctus ipsum vitae, ornare arcu. Morbi eget nisi libero. Mauris egestas ut orci quis lobortis.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mi enim, dapibus vitae nisi nec, auctor vulputate tortor. Nunc imperdiet, libero vitae volutpat convallis, purus ante lacinia leo, sed laoreet purus sem vitae ex. Sed convallis, metus vel mollis rhoncus, nulla ipsum mattis tellus, a ullamcorper mauris dolor id lacus. Ut ut iaculis metus. Nullam tempus diam id nisl mattis euismod. Etiam pulvinar dignissim turpis, quis vestibulum sapien convallis sed. Suspendisse turpis felis, euismod at suscipit sed, commodo non orci.');
 
 -- --------------------------------------------------------
 
@@ -32416,7 +32421,38 @@ CREATE TABLE IF NOT EXISTS `contatos` (
   `assunto` varchar(200) DEFAULT NULL,
   `texto` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `contatos`
+--
+
+INSERT INTO `contatos` (`id`, `idusuario`, `ativo`, `data_cadastro`, `hora_cadastro`, `nome`, `email`, `estado`, `telefone`, `cidade`, `assunto`, `texto`) VALUES
+(1, '4', 'S', '2016-07-08', '03:47:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '4', 'S', '2016-07-08', '03:50:55', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `eleicao`
+--
+
+CREATE TABLE IF NOT EXISTS `eleicao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idusuario` varchar(100) DEFAULT NULL,
+  `idgaleria` varchar(100) DEFAULT NULL,
+  `ativo` varchar(5) DEFAULT NULL,
+  `tipo` varchar(100) DEFAULT NULL,
+  `destaque` varchar(5) DEFAULT NULL,
+  `nome` text,
+  `idade` varchar(10) DEFAULT NULL,
+  `descricao` text,
+  `imagem` text,
+  `votos` int(11) DEFAULT '0',
+  `facebook` text,
+  `instagram` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 -- --------------------------------------------------------
 
@@ -32450,7 +32486,38 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 --
 
 INSERT INTO `empresa` (`id`, `idusuario`, `ativo`, `nome`, `cnpj`, `documento`, `endereco`, `telefone`, `celular`, `cidade`, `estado`, `email`, `site`, `fanpage`, `apresentacao`, `mapa`, `imagem`) VALUES
-(7, '1', 'S', 'Website', '038837444333333333', '', '', '', '', 'MaringÃ¡', 'PR', 'duarteleme@gmail.com', '', '', 'Nunc sed turpis. Nam adipiscing. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Quisque rutrum. In ac felis quis tortor malesuada pretium.\r\n\r\nIn hac habitasse platea dictumst. Ut tincidunt tincidunt erat. Curabitur a felis in nunc fringilla tristique. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Duis lobortis massa imperdiet quam.', '', '22524.jpg');
+(7, '1', 'S', 'Website', '9999999999999', '', 'Nome da rua e nÃºmero', '(44) 9999-9999', '', 'MaringÃ¡', 'PR', 'duarteleme@gmail.com', 'http://www.website.com.br', 'http://www.fb.com/', '', '', '25804.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `eventos`
+--
+
+CREATE TABLE IF NOT EXISTS `eventos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dataCadastro` datetime DEFAULT NULL,
+  `idusuario` varchar(10) DEFAULT NULL,
+  `tipo` varchar(100) DEFAULT NULL,
+  `ativo` varchar(5) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `horario` varchar(10) DEFAULT NULL,
+  `diadasemana` varchar(50) DEFAULT NULL,
+  `titulo` varchar(200) DEFAULT NULL,
+  `descricao` text,
+  `valor1` varchar(100) DEFAULT NULL,
+  `valor2` varchar(100) DEFAULT NULL,
+  `url1` text,
+  `url2` text,
+  `local` varchar(500) DEFAULT NULL,
+  `cidade` varchar(100) DEFAULT NULL,
+  `estado` varchar(100) DEFAULT NULL,
+  `informacao` text,
+  `mapa` text,
+  `imagem` text,
+  `idgaleria` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -32471,7 +32538,25 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   `nomepath` varchar(100) NOT NULL,
   `ordem` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=454 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=480 ;
+
+--
+-- Extraindo dados da tabela `fotos`
+--
+
+INSERT INTO `fotos` (`id`, `dataCadastro`, `idusuario`, `tipo`, `idrelacionamento`, `destaque`, `titulo`, `legenda1`, `legenda2`, `nomepath`, `ordem`) VALUES
+(468, '2016-07-08', '1', 'galerias', '320', 'N', '04.jpg', NULL, NULL, '1_320_31520.jpg', 0),
+(469, '2016-07-08', '1', 'galerias', '320', 'N', '02.jpg', NULL, NULL, '1_320_18227.jpg', 0),
+(470, '2016-07-08', '1', 'galerias', '320', 'N', '03.jpg', NULL, NULL, '1_320_21715.jpg', 0),
+(471, '2016-07-08', '1', 'galerias', '320', 'N', '01.jpg', NULL, NULL, '1_320_3535.jpg', 0),
+(472, '2016-07-08', '1', 'galerias', '320', 'N', '06.jpg', NULL, NULL, '1_320_35.jpg', 0),
+(473, '2016-07-08', '1', 'galerias', '320', 'N', '05.jpg', NULL, NULL, '1_320_24290.jpg', 0),
+(474, '2016-07-08', '1', 'galerias', '320', 'N', '07.jpg', NULL, NULL, '1_320_6160.jpg', 0),
+(475, '2016-07-08', '1', 'galerias', '320', 'N', '08.jpg', NULL, NULL, '1_320_23769.jpg', 0),
+(476, '2016-07-08', '1', 'galerias', '320', 'N', '09.jpg', NULL, NULL, '1_320_2800.jpg', 0),
+(477, '2016-07-08', '1', 'galerias', '320', 'N', '10.jpg', NULL, NULL, '1_320_9052.jpg', 0),
+(478, '2016-07-08', '1', 'galerias', '322', 'N', 'cinfer.jpg', NULL, NULL, '1_322_1844.jpg', 0),
+(479, '2016-07-08', '1', 'galerias', '322', 'N', 'cinfer2.jpg', NULL, NULL, '1_322_5275.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -32487,7 +32572,15 @@ CREATE TABLE IF NOT EXISTS `galerias` (
   `titulo` varchar(100) NOT NULL,
   `descricao` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=320 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=323 ;
+
+--
+-- Extraindo dados da tabela `galerias`
+--
+
+INSERT INTO `galerias` (`id`, `dataCadastro`, `ativo`, `idusuario`, `titulo`, `descricao`) VALUES
+(320, '2016-07-07', 'S', '1', 'Ferragens em Geral', NULL),
+(322, '2016-07-07', 'S', '1', 'Cinfer', NULL);
 
 -- --------------------------------------------------------
 
@@ -32550,7 +32643,7 @@ CREATE TABLE IF NOT EXISTS `paginas` (
   `idgaleria` int(11) DEFAULT NULL,
   `imagem` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
 
 -- --------------------------------------------------------
 
@@ -32578,7 +32671,7 @@ CREATE TABLE IF NOT EXISTS `setup` (
 --
 
 INSERT INTO `setup` (`id`, `idusuario`, `ativo`, `titulo`, `descricao`, `hometitulo`, `homesubtitulo`, `keyword`, `favicon`, `imagem`, `background`) VALUES
-(5, 1, 'S', 'Bella Casa | Seja bem-vindo', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', '');
+(5, 1, 'S', 'Website | Seja bem-vindo', '', 'Insira um titulo', 'Insira um Subtitulo', '', '', '', '');
 
 -- --------------------------------------------------------
 

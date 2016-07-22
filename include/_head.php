@@ -22,10 +22,17 @@
     <link href="../css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../js/plugins/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <link href="../js/plugins/intro/introjs.css" rel="stylesheet" />
+    <!-- TEXT EDITOR -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.0.2/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../js/froala/css/froala_editor.css">
+    <link rel="stylesheet" href="../js/froala/css/froala_style.css">
+    <link rel="stylesheet" href="../js/froala/css/plugins/table.css">
+
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Core Scripts - Include with every page -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
     <!-- FAST CLICK
     <script type="application/javascript" src="../js/fastclick.js"></script> 

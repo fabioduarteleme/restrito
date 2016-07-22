@@ -10,8 +10,8 @@ $tabelabd ="paginas";
 $controller = "../controller/paginasController.php";
 
 // INFO IMAGE RESIZE
-$largura ="800";
-$altura ="600";
+$largura ="1000";
+$altura ="800";
 
 // RECEIVE DATA
 mysql_select_db($database_db, $db);
@@ -120,8 +120,8 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="coluna">
                                             <label><i class="fa fa-tag"></i> Selecione o tipo de conteúdo</label>
                                             <select class="form-control" name="tipo">
-                                                <option value="pagina" <?php if (!(strcmp("pagina", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>> Página</option>
-                                                <option value="diferencial" <?php if (!(strcmp("diferencial", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Diferencial</option>
+                                                <option value="<?php echo htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8'); ?>" <?php echo htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8'); ?>><?php echo htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8'); ?></option>
+                                                <option value="categoria01" <?php if (!(strcmp("categoria01", htmlentities($row_up['tipo'], ENT_COMPAT, 'utf-8')))) {echo "SELECTED";} ?>>Categoria 01</option>
                                             </select>
                                             </div>
                                         </div>
@@ -136,14 +136,14 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="form-group col-md-12">
                                             <textarea placeholder="Campo de texto livre 1" name="texto01" type="text" class="form-control"/><?php echo htmlentities($row_up['texto01'], ENT_COMPAT, 'utf-8'); ?></textarea>
                                             </div>
-                                            <div class="form-group col-md-12">
-                                            <textarea placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/><?php echo htmlentities($row_up['texto02'], ENT_COMPAT, 'utf-8'); ?></textarea>
+                                            <div id="editor" class="form-group col-md-12">
+                                            <textarea id="edit" placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/><?php echo htmlentities($row_up['texto02'], ENT_COMPAT, 'utf-8'); ?></textarea>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                            <textarea placeholder="Campo de texto livre 3" name="texto03" type="text" class="form-control"/><?php echo htmlentities($row_up['texto03'], ENT_COMPAT, 'utf-8'); ?></textarea>
+                                            <textarea  placeholder="Campo de texto livre 3" name="texto03" type="text" class="form-control"/><?php echo htmlentities($row_up['texto03'], ENT_COMPAT, 'utf-8'); ?></textarea>
                                             </div>
                                             <div class="form-group col-md-6">
                                             <textarea placeholder="Campo de texto livre 4" name="texto04" type="text" class="form-control"/><?php echo htmlentities($row_up['texto04'], ENT_COMPAT, 'utf-8'); ?></textarea>
@@ -213,13 +213,12 @@ $totalRows_up = mysql_num_rows($up);
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <select class="form-control col-md-12" name="tipo" require>
-                                                    <option value="" selected> Selecione uma Categoria</option>
-                                                    <option value="pagina"> Página</option>
-                                                    <option value="diferencial">Diferencial</option>
+                                                    <option value="" selected>Selecione uma Categoria</option>
+                                                    <option value="categoria01">Categoria 01</option>
                                                 </select>
                                              </div>   
                                         </div>
-                                        
+
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                             <input placeholder="Titulo" name="titulo" type="text" class="form-control" value="" required/>
@@ -233,8 +232,8 @@ $totalRows_up = mysql_num_rows($up);
                                         </div>
                                         
                                         <div class="row">
-                                            <div class="form-group col-md-12">
-                                            <textarea placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/></textarea>
+                                            <div id="editor" class="form-group col-md-12">
+                                            <textarea id='add' placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/></textarea>
                                             </div> 
                                         </div>
                                         

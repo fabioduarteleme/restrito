@@ -6,7 +6,7 @@ include("../include/_head.php");
 
 // RECEIVE DATA
 mysql_select_db($database_db, $db);
-$query_imovel = "SELECT * FROM imovel WHERE idusuario='".$row_user["idusuario"]."' ORDER BY id DESC";
+$query_imovel = "SELECT * FROM paginas WHERE idusuario='".$row_user["idusuario"]."' ORDER BY id DESC";
 $imovel = mysql_query($query_imovel, $db) or die(mysql_error());
 $row_imovel = mysql_fetch_assoc($imovel);
 $totalRows_imovel = mysql_num_rows($imovel);
@@ -20,7 +20,7 @@ $totalRows_totalcontatos = mysql_num_rows($totalcontatos);
 
 // RECEIVE DATA
 mysql_select_db($database_db, $db);
-$query_totalimoveis = "SELECT * FROM imovel WHERE idusuario='".$row_user["idusuario"]."'";
+$query_totalimoveis = "SELECT * FROM paginas WHERE idusuario='".$row_user["idusuario"]."'";
 $totalimoveis = mysql_query($query_totalimoveis, $db) or die(mysql_error());
 $row_totalimoveis = mysql_fetch_assoc($totalimoveis);
 $totalRows_totalimoveis = mysql_num_rows($totalimoveis);
@@ -57,7 +57,7 @@ $totalRows_totalibanner = mysql_num_rows($totalbanner);
                                 <h2><i class="fa fa-bookmark"></i> Seja Bem-vindo</h2><br>
                                 <p>Seja bem vindo, este é o painel de controle aonde é possível acompanhar os contatos de seu site, assim como também cadastrar novos ítens e alterar informações presentes nas páginas de seu site.  Fique atento aos contatos que você receberá do site por meio do formulário de contato, responda-os sempre que puder.</p>
                                 <br>
-                                <a data-step="1" data-intro="Seja bem-vindo! Você pode acessar seu website clicando aqui." href="../../home/?u=<?php echo base64_encode($row_user['idusuario']); ?>" target="_blank" class="btn btn-primary btn-lg" role="button"><i class="fa fa-sitemap"></i> Acesse seu site</a>
+                                <a data-step="1" data-intro="Seja bem-vindo! Você pode acessar seu website clicando aqui." href="../../" target="_blank" class="btn btn-primary btn-lg" role="button"><i class="fa fa-sitemap"></i> Acesse seu site</a>
                                 <a href="<?php echo $logoutAction ?>" target="_blank" class="btn btn-default btn-lg" role="button"><i class="fa fa-user"></i> Sair</a>
                                 </p>
                             </div>
@@ -69,12 +69,12 @@ $totalRows_totalibanner = mysql_num_rows($totalbanner);
                             <div class="col-xs-4 col-md-4">
                                 <div class="panel panel-primary text-center panel-eyecandy" data-position='top' data-step="2" data-intro="Este é um resumo dos dados registrados até agora em seu site">
                                     <div class="panel-body theme-color">
-                                        <i class="fa fa-home fa-3x"></i>
+                                        <i class="fa fa-file-text fa-3x"></i>
                                         <h3><?php echo $totalRows_imovel; ?></h3>
                                     </div>
                                     <div class="panel-footer">
                                         <span class="panel-eyecandy-title">
-                                            Total de Imóveis
+                                            Total de Páginas
                                         </span>
                                     </div>
                                 </div>

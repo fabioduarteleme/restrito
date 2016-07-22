@@ -10,8 +10,8 @@ $tabelabd ="banner";
 $controller = "../controller/bannerController.php";
 
 // INFO IMAGE RESIZE
-$largura ="1300";
-$altura ="450";
+$largura ="1900";
+$altura ="1080";
 
 // RECEIVE DATA
 mysql_select_db($database_db, $db);
