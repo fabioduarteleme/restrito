@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Jul-2016 às 03:15
+-- Generation Time: 22-Jul-2016 às 05:02
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `cinfer`
+-- Database: `nobresemijoias`
 --
 
 -- --------------------------------------------------------
@@ -32540,24 +32540,6 @@ CREATE TABLE IF NOT EXISTS `fotos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=480 ;
 
---
--- Extraindo dados da tabela `fotos`
---
-
-INSERT INTO `fotos` (`id`, `dataCadastro`, `idusuario`, `tipo`, `idrelacionamento`, `destaque`, `titulo`, `legenda1`, `legenda2`, `nomepath`, `ordem`) VALUES
-(468, '2016-07-08', '1', 'galerias', '320', 'N', '04.jpg', NULL, NULL, '1_320_31520.jpg', 0),
-(469, '2016-07-08', '1', 'galerias', '320', 'N', '02.jpg', NULL, NULL, '1_320_18227.jpg', 0),
-(470, '2016-07-08', '1', 'galerias', '320', 'N', '03.jpg', NULL, NULL, '1_320_21715.jpg', 0),
-(471, '2016-07-08', '1', 'galerias', '320', 'N', '01.jpg', NULL, NULL, '1_320_3535.jpg', 0),
-(472, '2016-07-08', '1', 'galerias', '320', 'N', '06.jpg', NULL, NULL, '1_320_35.jpg', 0),
-(473, '2016-07-08', '1', 'galerias', '320', 'N', '05.jpg', NULL, NULL, '1_320_24290.jpg', 0),
-(474, '2016-07-08', '1', 'galerias', '320', 'N', '07.jpg', NULL, NULL, '1_320_6160.jpg', 0),
-(475, '2016-07-08', '1', 'galerias', '320', 'N', '08.jpg', NULL, NULL, '1_320_23769.jpg', 0),
-(476, '2016-07-08', '1', 'galerias', '320', 'N', '09.jpg', NULL, NULL, '1_320_2800.jpg', 0),
-(477, '2016-07-08', '1', 'galerias', '320', 'N', '10.jpg', NULL, NULL, '1_320_9052.jpg', 0),
-(478, '2016-07-08', '1', 'galerias', '322', 'N', 'cinfer.jpg', NULL, NULL, '1_322_1844.jpg', 0),
-(479, '2016-07-08', '1', 'galerias', '322', 'N', 'cinfer2.jpg', NULL, NULL, '1_322_5275.jpg', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -32573,14 +32555,6 @@ CREATE TABLE IF NOT EXISTS `galerias` (
   `descricao` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=323 ;
-
---
--- Extraindo dados da tabela `galerias`
---
-
-INSERT INTO `galerias` (`id`, `dataCadastro`, `ativo`, `idusuario`, `titulo`, `descricao`) VALUES
-(320, '2016-07-07', 'S', '1', 'Ferragens em Geral', NULL),
-(322, '2016-07-07', 'S', '1', 'Cinfer', NULL);
 
 -- --------------------------------------------------------
 
