@@ -1,12 +1,45 @@
 <?php
 require_once('../Connections/db.php');
-include('../include/_restrito.php');
+
+// FORM SEND
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
 
 $pagereturn = "../view/contatos.php";
 $tabelabd = "contatos";
 
 //INSERT DATA
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "addForm")) {
+
 $insertSQL = sprintf("INSERT INTO $tabelabd (data_cadastro, hora_cadastro, idusuario, ativo, nome, email, estado, cidade, telefone, assunto, texto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
 GetSQLValueString($_POST['data_cadastro'], "date"),
 GetSQLValueString($_POST['hora_cadastro'], "date"),
@@ -19,15 +52,28 @@ GetSQLValueString($_POST['cidade'], "text"),
 GetSQLValueString($_POST['telefone'], "text"),
 GetSQLValueString($_POST['assunto'], "text"),
 GetSQLValueString($_POST['texto'], "text"));
+
+// UPLOAD DE ARQUIVO SE EXISTIR
+if(isset($_FILES['arquivoUpload']))
+   {
+      date_default_timezone_set("Brazil/East");
+ 
+      $ext = strtolower(substr($_FILES['arquivoUpload']['name'],-4));
+      $new_name = date("d.m.Y")."-".$_POST['email'].$ext;
+      $dir = '../arquivos/';
+ 
+      move_uploaded_file($_FILES['arquivoUpload']['tmp_name'], $dir.$new_name);
+}
+
 mysql_select_db($database_db, $db);
 $Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
 $headers = "Content-type: text/html; charset=UTF-8";
 require_once('../phpmailer/class.phpmailer.php');
-$mail             = new PHPMailer();
-$mail->SetFrom('contato@garciacontroledepragas.com.br', 'Garcia Controle de Pragas');
-$mail->AddReplyTo("contato@garciacontroledepragas.com.br","Garcia Controle de Pragas");
-$address = "contato@garciacontroledepragas.com.br";
+$mail = new PHPMailer();
+$mail->SetFrom($emaildosuporte, $nomeempresa);
+$mail->AddReplyTo($emaildosuporte, $nomeempresa);
+$address = $emaildosuporte;
 $mail->AddAddress($address, $_POST['nome']);
 $mail->Subject    = "Contato de seu site";
 $mail->MsgHTML(
@@ -42,7 +88,7 @@ $mail->MsgHTML(
 <table border='0' width='600' align='center'>
 <tbody>
 <tr>
-<td><span style='font-size:xx-small;font-family:verdana,geneva'><img src='http://www.garciacontroledepragas.com.br/restrito/img/cabecalho.jpg' alt='Logo' width='600' height='130'></span></td>
+<td><span style='font-size:xx-small;font-family:verdana,geneva'><img src='http://www.midiano.com.br/img/cabecalho.png' alt='Logo' width='600' height='130'></span></td>
 </tr>
 </tbody>
 </table>
