@@ -136,8 +136,9 @@ $totalRows_up = mysql_num_rows($up);
                                             <div class="form-group col-md-12">
                                             <textarea placeholder="Campo de texto livre 1" name="texto01" type="text" class="form-control"/><?php echo htmlentities($row_up['texto01'], ENT_COMPAT, 'utf-8'); ?></textarea>
                                             </div>
-                                            <div id="editor" class="form-group col-md-12">
-                                            <textarea id="edit" placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/><?php echo htmlentities($row_up['texto02'], ENT_COMPAT, 'utf-8'); ?></textarea>
+                                            <!-- ATIVA O FROALA EDITOR <div id="editor" class="form-group col-md-12"> & id="edit" no campo -->
+                                            <div class="form-group col-md-12">
+                                            <textarea placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/><?php echo htmlentities($row_up['texto02'], ENT_COMPAT, 'utf-8'); ?></textarea>
                                             </div>
                                         </div>
 
@@ -232,8 +233,9 @@ $totalRows_up = mysql_num_rows($up);
                                         </div>
                                         
                                         <div class="row">
-                                            <div id="editor" class="form-group col-md-12">
-                                            <textarea id='add' placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/></textarea>
+                                            <!-- ATIVA O FROALA EDITOR <div id="editor" class="form-group col-md-12"> & id="add" no campo -->
+                                            <div class="form-group col-md-12">
+                                            <textarea placeholder="Campo de texto livre 2" name="texto02" type="text" class="form-control"/></textarea>
                                             </div> 
                                         </div>
                                         
