@@ -56,6 +56,9 @@ $totalRows_banner = mysql_num_rows($banner);
 
 <!-- PUXAR BANNER -->
 <?php echo $urlsite ?>/<?php echo $urlcms ?>/img/banner/<?php echo $row_banner['imagem']; ?>
+
+<!-- CROPAR IMAGEM -->
+<img src="<?php echo $urlsite ?>/<?php echo $urlcms ?>/classes/resize.php?src=/restrito/img/paginas/<?php echo $row_depoimentoEmpresa['imagem']; ?>&h=90&w=90&zc=1&q=100&s=0">
 ```
 ## Menu com classe .active
 ```PHP
