@@ -28,7 +28,7 @@
                                     <?php if (@$_GET['s'] > 0) { ?>
                                     <div class="alert alert-danger alert-dismissable animated tada">
                                         <a href="index.php"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></a>
-                                        <i class="fa fa-warning"></i> Email ou senha incorretos
+                                        <i class="fa fa-warning"></i> Email ou senha incorreto
                                     </div>
                                     <?php } ?>
                                     <!-- Change this to a button or input when using this as a form -->
